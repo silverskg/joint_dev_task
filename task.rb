@@ -130,8 +130,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  data1[:age] ? puts("OK") : puts("NG")
-  data2[:age] ? puts("OK") : puts("NG")
+  puts data1[:age] ? ("OK") : ("NG")
+  puts data2[:age] ? ("OK") : ("NG")
 end
 
 def q16
