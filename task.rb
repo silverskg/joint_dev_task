@@ -29,7 +29,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports = sports.compact
+  sports.compact!
   # 以下は変更しないで下さ
   p sports
 end
@@ -84,7 +84,7 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-  (foods.include?("うに") )?  puts("好きです") : puts("まあまあ好きです")
+  puts (foods.include?("うに") )?  ("好きです") : ("まあまあ好きです")
 
 end
 
