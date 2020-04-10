@@ -85,11 +85,6 @@ def q10
 
   # 以下に回答を記載
   (foods.include?("うに") )?  puts("好きです") : puts("まあまあ好きです")
-  # if foods.include?("うに")
-  #   puts "好きです"
-  # else 
-  #   puts "まぁまぁ好きです"
-  # end
 
 end
 
@@ -108,22 +103,26 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  puts data [:user] [:name]
 
 end
 
 def q13
   user_data = { name: "神里", age: 31, address: "埼玉" }
   update_data = { age: 32, address: "沖縄" }
-
+  
   # 以下に回答を記載
-
+  user_data.update(update_data)
+  puts user_data
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  data.each_key do |key|
+    puts key
+  end
 end
 
 def q15
@@ -131,7 +130,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+  data1[:age] ? puts("OK") : puts("NG")
+  data2[:age] ? puts("OK") : puts("NG")
 end
 
 def q16
