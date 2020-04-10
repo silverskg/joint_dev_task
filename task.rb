@@ -29,8 +29,8 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  puts sports
-  # 以下は変更しないで下さい
+  sports = sports.compact
+  # 以下は変更しないで下さ
   p sports
 end
 
@@ -97,6 +97,10 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  sports.uniq!
+  sports.each.with_index(1) do |sport,i|
+    puts "No.#{i} #{sport}"
+  end
 
 end
 
