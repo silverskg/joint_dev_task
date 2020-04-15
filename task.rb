@@ -124,7 +124,7 @@ def q14
   #   puts key
   # end
 
-  array = data.values
+  array = data.keys
   puts array
 end
 
@@ -153,8 +153,17 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize
-    
+  def initialize(name:,age:,gender:,admin:)
+    @name = name
+    @age = age
+    @gender = gender
+    @admin = admin
+  end
+
+  def info
+    puts "名前:#{@name}"
+    puts "年齢:#{@age}"
+    puts "性別:#{@gender}"
   end
 
 end
