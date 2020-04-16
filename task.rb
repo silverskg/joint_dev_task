@@ -153,12 +153,12 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(**msg)
-    @msg = msg
-    # @name = name
-    # @age = age
-    # @gender = gender
-    # @admin = admin
+  def initialize(**params)
+    # @msg = msg
+    @name = params[:name]
+    @age = params[:age]
+    @gender = params[:gender]
+    @admin = params[:admin]
   end
 
   def info
@@ -166,9 +166,9 @@ class UserQ17
     # puts "名前:#{msg.to_a}"
     # puts "年齢:#{msg}"
     # end
-    puts "名前:#{@msg[:name]}"
-    puts "年齢:#{@msg[:age]}"
-    puts "性別:#{@msg[:gender]}"
+    puts "名前:#{@name}"
+    puts "年齢:#{@age}"
+    puts "性別:#{@gender}"
   end
 end
 
