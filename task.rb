@@ -153,19 +153,23 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(name:,age:,gender:,admin:)
-    @name = name
-    @age = age
-    @gender = gender
-    @admin = admin
+  def initialize(**msg)
+    @msg = msg
+    # @name = name
+    # @age = age
+    # @gender = gender
+    # @admin = admin
   end
 
   def info
-    puts "名前:#{@name}"
-    puts "年齢:#{@age}"
-    puts "性別:#{@gender}"
+    # @msg.each do |msg|
+    # puts "名前:#{msg.to_a}"
+    # puts "年齢:#{msg}"
+    # end
+    puts "名前:#{@msg[:name]}"
+    puts "年齢:#{@msg[:age]}"
+    puts "性別:#{@msg[:gender]}"
   end
-
 end
 
 def q17
@@ -206,14 +210,14 @@ end
 
 class Item
   # 以下を修正して下さい
-  attr_accessor :name
+  # attr_accessor :name
   def initialize(name:)
     @name = name
   end
 
-  # def name
-  #   puts @name
-  # end
+  def name
+    @name
+  end
 end
 
 def q19
@@ -224,12 +228,19 @@ end
 
 class UserQ20
   # 以下に回答を記載
-  attr_accessor :name,:age
+  attr_accessor :name,:age 
   def initialize(name:,age:)
     @name = name
     @age = age
   end  
 
+  def name
+    @name
+  end
+
+  def age
+    @age
+  end
 end
 
 class Zoo
@@ -242,6 +253,11 @@ class Zoo
   def info_entry_fee(user)
     name = user.name
     age = user.age
+    infant = 0
+    children = 400
+    adult = 800
+    senior = 500
+
     case age
     when 0..5
       info_entry_fee = @entry_fee[:infant]
