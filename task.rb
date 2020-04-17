@@ -162,13 +162,11 @@ class UserQ17
   end
 
   def info
-    # @msg.each do |msg|
-    # puts "名前:#{msg.to_a}"
-    # puts "年齢:#{msg}"
-    # end
-    puts "名前:#{@name}"
-    puts "年齢:#{@age}"
-    puts "性別:#{@gender}"
+    puts <<~TEXT
+    "名前:#{@name}"
+    "年齢:#{@age}"
+    "性別:#{@gender}"
+    TEXT
   end
 end
 
@@ -210,14 +208,11 @@ end
 
 class Item
   # 以下を修正して下さい
-  # attr_accessor :name
+  attr_reader :name
   def initialize(name:)
     @name = name
   end
 
-  def name
-    @name
-  end
 end
 
 def q19
@@ -229,9 +224,9 @@ end
 class UserQ20
   # 以下に回答を記載
   attr_accessor :name,:age 
-  def initialize(name:,age:)
-    @name = name
-    @age = age
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
   end  
 
   def name
@@ -245,30 +240,29 @@ end
 
 class Zoo
   # 以下に回答を記載
-  def initialize(name:,entry_fee:)
-    # @name = name
-    @entry_fee = entry_fee
+  # attr_reader :name,:entry_fee
+  def initialize(**params)
+    @infant_entry_fee = params[:entry_fee][:infant]
+    @children_entry_fee = params[:entry_fee][:children]
+    @adult_entry_fee = params[:entry_fee][:adult]
+    @senior_entry_fee = params[:entry_fee][:senior]
+    @name = params[:name]
   end
 
   def info_entry_fee(user)
-    name = user.name
-    age = user.age
-    infant = 0
-    children = 400
-    adult = 800
-    senior = 500
-
-    case age
+  
+    entry_fee = case user.age
     when 0..5
-      info_entry_fee = @entry_fee[:infant]
+      @infant_entry_fee
     when 6..12
-      info_entry_fee = @entry_fee[:children]
+      @children_entry_fee
     when 13..64
-      info_entry_fee = @entry_fee[:adult]
+      @adult_entry_fee
     when 65..120
-      info_entry_fee = @entry_fee[:senior]
+      @senior_entry_fee
     end
-    puts "#{name}の入場料金は#{info_entry_fee}円です。"
+
+    puts "#{user.name}の入場料金は#{entry_fee}円です。"
   end
 end
 
