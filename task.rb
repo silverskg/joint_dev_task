@@ -223,7 +223,6 @@ end
 
 class UserQ20
   # 以下に回答を記載
-  attr_accessor :name,:age 
   def initialize(**params)
     @name = params[:name]
     @age = params[:age]
